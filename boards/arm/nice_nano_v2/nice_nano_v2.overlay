@@ -1,0 +1,16 @@
+/ {
+    backlight: backlight {
+        compatible = "pwm-leds";
+        /* Właściwości zależne od konkretnego sprzętu; np. który pin jest wyjściem PWM? */
+        /*
+         * Tutaj np. &pwm0 to odwołanie do węzła pwm0 w dts,
+         * a <0 20000 0> może oznaczać np. kanał 0, okres sygnału, fazę...
+         */
+        pwms = <&pwm0 0 20000 0>;
+        label = "My Keyboard Backlight";
+    };
+
+    chosen {
+        zmk,backlight = &backlight;
+    };
+};
