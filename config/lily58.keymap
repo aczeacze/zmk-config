@@ -21,7 +21,7 @@
             time-to-max-speed-ms = <300>;
             acceleration-exponent = <1>;
             scroll-x = <0>;
-            scroll-y = <-15>;  // Increased scroll speed (negative for down)
+            scroll-y = <(-15)>;  // Increased scroll speed (negative for down)
         };
 
         msc_scrl_u: msc_scrl_u {
@@ -43,7 +43,7 @@
             time-to-max-speed-ms = <300>;
             acceleration-exponent = <1>;
             x-move = <0>;
-            y-move = <-20>;  // Increased speed (negative for up)
+            y-move = <(-20)>;  // Increased speed (negative for up)
         };
 
         mmv_d: mmv_d {
@@ -64,7 +64,7 @@
             delay-ms = <0>;
             time-to-max-speed-ms = <300>;
             acceleration-exponent = <1>;
-            x-move = <-20>;  // Increased speed (negative for left)
+            x-move = <(-20)>;  // Increased speed (negative for left)
             y-move = <0>;
         };
 
