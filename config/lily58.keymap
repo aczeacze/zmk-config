@@ -11,6 +11,79 @@
 #include <dt-bindings/zmk/rgb.h>
 
 / {
+    // Add custom mouse configuration
+    behaviors {
+        msc_scrl_d: msc_scrl_d {
+            compatible = "zmk,behavior-mouse-scroll";
+            label = "MSC_SCRL_D";
+            #binding-cells = <0>;
+            delay-ms = <0>;
+            time-to-max-speed-ms = <300>;
+            acceleration-exponent = <1>;
+            scroll-x = <0>;
+            scroll-y = <-15>;  // Increased scroll speed (negative for down)
+        };
+
+        msc_scrl_u: msc_scrl_u {
+            compatible = "zmk,behavior-mouse-scroll";
+            label = "MSC_SCRL_U";
+            #binding-cells = <0>;
+            delay-ms = <0>;
+            time-to-max-speed-ms = <300>;
+            acceleration-exponent = <1>;
+            scroll-x = <0>;
+            scroll-y = <15>;  // Increased scroll speed (positive for up)
+        };
+
+        mmv_u: mmv_u {
+            compatible = "zmk,behavior-mouse-move";
+            label = "MMV_U";
+            #binding-cells = <0>;
+            delay-ms = <0>;
+            time-to-max-speed-ms = <300>;
+            acceleration-exponent = <1>;
+            bindings = <&mmv MOVE_UP>;
+            x-move = <0>;
+            y-move = <-20>;  // Increased speed (negative for up)
+        };
+
+        mmv_d: mmv_d {
+            compatible = "zmk,behavior-mouse-move";
+            label = "MMV_D";
+            #binding-cells = <0>;
+            delay-ms = <0>;
+            time-to-max-speed-ms = <300>;
+            acceleration-exponent = <1>;
+            bindings = <&mmv MOVE_DOWN>;
+            x-move = <0>;
+            y-move = <20>;  // Increased speed (positive for down)
+        };
+
+        mmv_l: mmv_l {
+            compatible = "zmk,behavior-mouse-move";
+            label = "MMV_L";
+            #binding-cells = <0>;
+            delay-ms = <0>;
+            time-to-max-speed-ms = <300>;
+            acceleration-exponent = <1>;
+            bindings = <&mmv MOVE_LEFT>;
+            x-move = <-20>;  // Increased speed (negative for left)
+            y-move = <0>;
+        };
+
+        mmv_r: mmv_r {
+            compatible = "zmk,behavior-mouse-move";
+            label = "MMV_R";
+            #binding-cells = <0>;
+            delay-ms = <0>;
+            time-to-max-speed-ms = <300>;
+            acceleration-exponent = <1>;
+            bindings = <&mmv MOVE_RIGHT>;
+            x-move = <20>;  // Increased speed (positive for right)
+            y-move = <0>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -33,9 +106,6 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        // Następnie w sekcji lower_layer lub raise_layer (w zależności od preferencji)
-        // dodaj klawisze do sterowania RGB:
-
         lower_layer {
             // ------------------------------------------------------------------------------------------------------------
             // | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
@@ -45,11 +115,11 @@
             //                     |      |      |      |        |  |       |      |       |       |
 
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                       &trans  &trans          &trans          &trans           &trans    &trans
-&kp F11     &kp GRAVE        &kp SQT          &none            &none            &none                              &none   &none           &mmv MOVE_UP    &none            &none     &msc SCRL_UP
-&kp F12     &kp EXCL         &kp AT           &kp HASH         &kp DOLLAR       &kp PRCNT                          &none   &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none     &msc SCRL_DOWN
-&mkp LCLK   &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &trans    &trans  &trans  &kp MINUS       &kp PLUS        &kp LBRC         &kp RBRC  &none
-                                              &mkp MCLK        &mkp RCLK        &trans           &trans    &trans  &trans  &trans          &trans
+&bt BT_CLR  &bt BT_SEL 0     &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4                       &trans  &trans     &mmv_u    &trans     &trans    &trans
+&kp F11     &kp GRAVE        &kp SQT          &none            &none            &none                              &none   &mmv_l     &mmv_d     &mmv_r     &none     &msc_scrl_u
+&kp F12     &kp EXCL         &kp AT           &kp HASH         &kp DOLLAR       &kp PRCNT                          &none   &none      &none      &none      &none     &msc_scrl_d
+&mkp LCLK   &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &trans    &trans  &trans  &kp MINUS  &kp PLUS   &kp LBRC   &kp RBRC  &none
+                                              &mkp MCLK        &mkp RCLK        &trans           &trans    &trans  &trans  &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -74,4 +144,4 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
-};
+};	
