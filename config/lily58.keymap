@@ -42,7 +42,6 @@
             delay-ms = <0>;
             time-to-max-speed-ms = <300>;
             acceleration-exponent = <1>;
-            bindings = <&mmv MOVE_UP>;
             x-move = <0>;
             y-move = <-20>;  // Increased speed (negative for up)
         };
@@ -54,7 +53,6 @@
             delay-ms = <0>;
             time-to-max-speed-ms = <300>;
             acceleration-exponent = <1>;
-            bindings = <&mmv MOVE_DOWN>;
             x-move = <0>;
             y-move = <20>;  // Increased speed (positive for down)
         };
@@ -66,7 +64,6 @@
             delay-ms = <0>;
             time-to-max-speed-ms = <300>;
             acceleration-exponent = <1>;
-            bindings = <&mmv MOVE_LEFT>;
             x-move = <-20>;  // Increased speed (negative for left)
             y-move = <0>;
         };
@@ -78,7 +75,6 @@
             delay-ms = <0>;
             time-to-max-speed-ms = <300>;
             acceleration-exponent = <1>;
-            bindings = <&mmv MOVE_RIGHT>;
             x-move = <20>;  // Increased speed (positive for right)
             y-move = <0>;
         };
@@ -144,4 +140,4 @@
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
-};	
+};
