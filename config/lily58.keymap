@@ -9,6 +9,7 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
+#include <behaviors/mouse_keys.dtsi>
 
 / {
     // Add custom mouse configuration
@@ -112,8 +113,8 @@
 
 bindings = <
     &bt  BT_CLR        &bt BT_SEL 0     &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4                    &trans &trans &mmv MOVE_UP   &trans &trans &trans
-    &kp  F11           &kp GRAVE        &kp SQT         &none           &none           &none                            &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none  &msc_scrl_u
-    &kp  F12           &kp EXCL         &kp AT          &kp HASH        &kp DOLLAR      &kp PRCNT                        &none  &none           &none           &none            &none  &msc_scrl_d
+    &kp  F11           &kp GRAVE        &kp SQT         &none           &none           &none                            &none  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none  &msc SCRL_UP
+    &kp  F12           &kp EXCL         &kp AT          &kp HASH        &kp DOLLAR      &kp PRCNT                        &none  &none           &none           &none            &none  &msc SCRL_DOWN
     &mkp LCLK          &rgb_ug RGB_TOG  &rgb_ug RGB_EFF &rgb_ug RGB_HUI &rgb_ug RGB_SAI &rgb_ug RGB_BRI   &trans &trans  &trans &kp MINUS &kp PLUS &kp LBRC &kp RBRC &none
                                        &mkp MCLK        &mkp RCLK       &trans          &trans            &trans &trans  &trans &trans
 >;
