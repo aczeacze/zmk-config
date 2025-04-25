@@ -21,7 +21,7 @@
         spi-max-frequency = <4000000>;
 
         /* WS2812/SK6812 */
-        chain-length      = <35>;         /* LICZBA LED‑ów NA POŁÓWKĘ */
+        chain-length      = <38>;         /* LICZBA LED‑ów NA POŁÓWKĘ */
         spi-one-frame     = <0x70>;
         spi-zero-frame    = <0x40>;
         color-mapping     = <1 0 2>;      /* GRB */
