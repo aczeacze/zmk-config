@@ -5,10 +5,7 @@
     };
 };
 
-/* pin‑ctrl zostaje bez zmian ----------------------------------- */
-
 &spi3 {
-    /* NIE nadpisujemy compatible – już jest w oryginalnym DTS */
     status = "okay";
     pinctrl-0 = <&spi3_default>;
     pinctrl-1 = <&spi3_sleep>;
@@ -17,13 +14,17 @@
     led_strip: ws2812@0 {
         compatible        = "worldsemi,ws2812-spi";
         label             = "WS2812";
-        reg               = <0>;          /* wymagane przez binding SPI */
-        spi-max-frequency = <4000000>;
+        reg               = <0>;
+        
+        /* Decreased frequency for more stable signal */
+        spi-max-frequency = <2000000>;  /* Reduced from 4MHz to 2MHz */
 
-        /* WS2812/SK6812 */
-        chain-length      = <38>;         /* LICZBA LED‑ów NA POŁÓWKĘ */
-        spi-one-frame     = <0x70>;
-        spi-zero-frame    = <0x40>;
-        color-mapping     = <1 0 2>;      /* GRB */
+        chain-length      = <38>;
+        
+        /* Adjusted timing - try these values */
+        spi-one-frame     = <0x70>;     /* You could try 0x78 or 0x7C for stronger signal */
+        spi-zero-frame    = <0x40>;     /* You could try 0x30 if above doesn't work */
+        
+        color-mapping     = <1 0 2>;    /* GRB */
     };
 };
