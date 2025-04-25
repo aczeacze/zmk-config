@@ -5,26 +5,32 @@
     };
 };
 
+/* Try a different LED driver approach */
 &spi3 {
     status = "okay";
     pinctrl-0 = <&spi3_default>;
     pinctrl-1 = <&spi3_sleep>;
     pinctrl-names = "default", "sleep";
 
+    /* Using a different compatible might help */
     led_strip: ws2812@0 {
-        compatible        = "worldsemi,ws2812-spi";
-        label             = "WS2812";
-        reg               = <0>;
+        compatible = "worldsemi,ws2812-spi";
+        label = "WS2812";
+        reg = <0>;
         
-        /* Decreased frequency for more stable signal */
-        spi-max-frequency = <2000000>;  /* Reduced from 4MHz to 2MHz */
-
-        chain-length      = <38>;
+        /* Try even more extreme timing values */
+        spi-max-frequency = <3200000>;  /* Slightly different frequency */
         
-        /* Adjusted timing - try these values */
-        spi-one-frame     = <0x70>;     /* You could try 0x78 or 0x7C for stronger signal */
-        spi-zero-frame    = <0x40>;     /* You could try 0x30 if above doesn't work */
+        chain-length = <38>;
         
-        color-mapping     = <1 0 2>;    /* GRB */
+        /* Extreme values to try to maintain signal integrity */
+        spi-one-frame = <0x7E>;  /* Almost full-on for "1" */
+        spi-zero-frame = <0x20>; /* Minimal for "0" */
+        
+        color-mapping = <1 0 2>;  /* GRB */
+        
+        /* If the ZMK version supports custom parameters: */
+        /* signal-pre-delay-us = <1>; */  /* Delay before signal start */
+        /* signal-post-delay-us = <1>; */ /* Delay after signal end */
     };
 };
