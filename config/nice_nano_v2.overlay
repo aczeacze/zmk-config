@@ -32,7 +32,6 @@
         /* If the ZMK version supports custom parameters: */
         /* signal-pre-delay-us = <1>; */  /* Delay before signal start */
         /* signal-post-delay-us = <1>; */ /* Delay after signal end */
-		has-white-channel;        /* Może pomóc w alokacji odpowiedniego bufora */
         pre-delay-us = <1>;      /* Bez opóźnienia przed */
         post-delay-us = <1>;     /* Bez opóźnienia po */
         reset-delay-us = <500>;  /* Standardowy czas resetu */
