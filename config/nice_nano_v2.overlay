@@ -33,4 +33,4 @@
         /* signal-pre-delay-us = <1>; */  /* Delay before signal start */
         /* signal-post-delay-us = <1>; */ /* Delay after signal end */
     };
-};
+}; 
