@@ -29,11 +29,5 @@
         
         color-mapping = <1 0 2>;  /* GRB */
         
-        /* If the ZMK version supports custom parameters: */
-        /* signal-pre-delay-us = <1>; */  /* Delay before signal start */
-        /* signal-post-delay-us = <1>; */ /* Delay after signal end */
-        signal-pre-delay-us = <1>;      /* Bez opóźnienia przed */
-        signal-post-delay-us = <1>;     /* Bez opóźnienia po */
-        signal-reset-delay-us = <500>;  /* Standardowy czas resetu */
     };
 }; 
